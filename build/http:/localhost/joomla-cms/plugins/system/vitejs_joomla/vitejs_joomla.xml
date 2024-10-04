@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.8" client="site" type="plugin" group="system" method="upgrade">
+	<name>PLG_SYSTEM_VITEJS_JOOMLA</name>
+	<version>1.0.0</version>
+	<creationDate>September 2024</creationDate>
+	<author>@phproberto</author>
+	<authorUrl>https://phproberto.com</authorUrl>
+	<copyright>Copyright (C) 2024 Roberto Segura López. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>PLG_SYSTEM_VITEJS_JOOMLA_DESC</description>
+	<files>
+		<folder>language</folder>
+		<folder>src</folder>
+		<filename plugin="vitejs_joomla">vitejs_joomla.php</filename>
+		<filename>vitejs_joomla.xml</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="host" type="text"
+					label="PLG_SYSTEM_VITEJS_JOOMLA_PARAM_HOST"
+					description="PLG_SYSTEM_VITEJS_JOOMLA_PARAM_HOST"
+					default="http://localhost:5133"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

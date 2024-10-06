@@ -8,6 +8,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Phproberto\Joomla\Vite\ViteEntry;
 use Joomla\CMS\Application\CMSApplication;
+use Phproberto\Joomla\Vite\ViteEntryConfiguration;
 
 class PlgSystemVitejs_Joomla extends CMSPlugin
 {
@@ -24,6 +25,13 @@ class PlgSystemVitejs_Joomla extends CMSPlugin
      * @var    boolean
      */
     protected $autoloadLanguage = true;
+
+    private function getDefaultConfig(): array
+    {
+        return [
+            'mode' => $this->params->get('mode', ViteEntryConfiguration::MODE_DEVELOPMENT),
+        ];
+    }
 
     private function isAjaxRequest(): bool
     {
@@ -54,7 +62,7 @@ class PlgSystemVitejs_Joomla extends CMSPlugin
             preg_match_all($regex, $body, $matches, PREG_SET_ORDER);
 
             foreach ($matches as $match) {
-                $entry = ViteEntry::fromRegexMatch($match);
+                $entry = ViteEntry::fromRegexMatch($match, $this->getDefaultConfig());
                 $output = $entry->getOutput();
 
                 $body = str_replace($match[0], $output, $body);

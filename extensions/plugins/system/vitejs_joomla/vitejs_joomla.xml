@@ -21,11 +21,14 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="host" type="text"
-					label="PLG_SYSTEM_VITEJS_JOOMLA_PARAM_HOST"
-					description="PLG_SYSTEM_VITEJS_JOOMLA_PARAM_HOST"
-					default="http://localhost:5133"
-				/>
+				<field name="mode" type="list"
+					label="PLG_SYSTEM_VITEJS_JOOMLA_PARAM_MODE"
+					description="PLG_SYSTEM_VITEJS_JOOMLA_PARAM_MODE_DESC"
+					default="development"
+				>
+				<option value="development">PLG_SYSTEM_VITEJS_JOOMLA_PARAM_MODE_OPTION_DEVELOPMENT</option>
+				<option value="production">PLG_SYSTEM_VITEJS_JOOMLA_PARAM_MODE_OPTION_PRODUCTION</option>
+				</field>
 			</fieldset>
 		</fields>
 	</config>

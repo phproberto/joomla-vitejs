@@ -29,15 +29,15 @@ final class ViteEntry {
         $this->config = $config;
     }
 
-    public static function fromRegexMatch($match): ViteEntry
+    public static function fromRegexMatch($match, array $config = []): ViteEntry
     {
         $jsonString = '[' . str_replace("'", '"', $match[1]) . ']';
         $arguments = json_decode($jsonString, true);
         $path = $arguments[0];
 
-        $config = isset($arguments[1]) ? new ViteEntryConfiguration($arguments[1]) : new ViteEntryConfiguration;
+        $config = isset($arguments[1]) ? array_merge($config, $arguments[1]) : $config;
 
-        return new ViteEntry($path, $config);
+        return new ViteEntry($path, new ViteEntryConfiguration($config));
     }
 
     public function getAssetUrl(string $asset): string
@@ -204,6 +204,10 @@ final class ViteEntry {
 
     public function isDev(): bool
     {
+        if ($this->config->isProduction()) {
+            return false;
+        }
+
         $manifest = $this->config->getManifestPath();
 
         if (array_key_exists($manifest, static::$checked)) {

@@ -10,8 +10,9 @@ final class ViteEntryConfiguration {
 
     const DEFAULT_INTERNAL_HOST = 'http://localhost:5173';
     const DEFAULT_EXTERNAL_HOST = 'http://localhost:5173';
-
     const DEFAULT_MANIFEST = '/manifest.json';
+    const MODE_DEVELOPMENT = 'development';
+    const MODE_PRODUCTION = 'production';
 
     public function __construct(array $data = [])
     {
@@ -50,6 +51,11 @@ final class ViteEntryConfiguration {
         return $this->get('basePath') . $this->get('manifest', self::DEFAULT_MANIFEST);
     }
 
+    public function getMode(): string
+    {
+        return $this->get('mode', self::MODE_DEVELOPMENT);
+    }
+
     public function getExternalViteHost(): string
     {
         return $this->get('externalHost', self::DEFAULT_EXTERNAL_HOST);
@@ -63,5 +69,15 @@ final class ViteEntryConfiguration {
     public function get(string $property, $default = null)
     {
         return array_key_exists($property, $this->data) ? $this->data[$property] : $default;
+    }
+
+    public function isDevelopment(): bool
+    {
+        return $this->getMode() === self::MODE_DEVELOPMENT;
+    }
+
+    public function isProduction(): bool
+    {
+        return $this->getMode() === self::MODE_PRODUCTION;
     }
 }

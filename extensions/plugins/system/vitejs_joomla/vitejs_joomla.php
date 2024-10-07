@@ -2,13 +2,14 @@
 
 defined('_JEXEC') or die;
 
-\JLoader::registerNamespace('Phproberto\Joomla', __DIR__ .'/src', false, false, 'psr4');
+require_once __DIR__ . '/vendor/autoload.php';
 
 use Joomla\CMS\Factory;
+use Phproberto\Vite\Vite;
+use Phproberto\Vite\ViteEntry;
 use Joomla\CMS\Plugin\CMSPlugin;
-use Phproberto\Joomla\Vite\ViteEntry;
 use Joomla\CMS\Application\CMSApplication;
-use Phproberto\Joomla\Vite\ViteEntryConfiguration;
+use Phproberto\Vite\ViteEntryConfiguration;
 
 class PlgSystemVitejs_Joomla extends CMSPlugin
 {
@@ -58,17 +59,9 @@ class PlgSystemVitejs_Joomla extends CMSPlugin
         if ($this->isEnabledView()) {
             $body = $this->app->getBody();
 
-            $regex = '/@vite\((.+?)\)/s';
-            preg_match_all($regex, $body, $matches, PREG_SET_ORDER);
+            $vite = new Vite(new ViteEntryConfiguration($this->getDefaultConfig()));
 
-            foreach ($matches as $match) {
-                $entry = ViteEntry::fromRegexMatch($match, $this->getDefaultConfig());
-                $output = $entry->getOutput();
-
-                $body = str_replace($match[0], $output, $body);
-            }
-
-            $this->app->setBody($body);
+            $this->app->setBody($vite->replaceTagsInText($body));
         }
     }
 }

@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "92bff0e9c8f365d12ef1b568e8afe405",
+    "packages": [
+        {
+            "name": "phproberto/vitejs-php",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phproberto/vitejs-php.git",
+                "reference": "f9799acca5f95ffb2a8931ec05a513f81728e269"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phproberto/vitejs-php/zipball/f9799acca5f95ffb2a8931ec05a513f81728e269",
+                "reference": "f9799acca5f95ffb2a8931ec05a513f81728e269",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">7.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.4.0",
+                "phpstan/phpstan": "^1.4",
+                "phpunit/phpunit": "^9.5"
+            },
+            "default-branch": true,
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Phproberto\\Vite\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "support": {
+                "issues": "https://github.com/phproberto/vitejs-php/issues",
+                "source": "https://github.com/phproberto/vitejs-php/tree/main"
+            },
+            "time": "2024-10-07T08:21:03+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "phproberto/vitejs-php": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">7.3"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

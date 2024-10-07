@@ -1,0 +1,13 @@
+{
+    "name": "phproberto/vitejs-joomla",
+    "type": "project",
+    "require": {
+        "php": ">7.3",
+        "phproberto/vitejs-php": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phproberto\\Vite\\": "/Users/rsegura/code/phproberto/vitejs-php/src"
+        }
+    }
+}

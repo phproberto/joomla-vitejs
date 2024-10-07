@@ -11,7 +11,7 @@
 	<files>
 		<folder>language</folder>
 		<folder>layouts</folder>
-		<folder>src</folder>
+		<folder>vendor</folder>
 		<filename plugin="vitejs_joomla">vitejs_joomla.php</filename>
 		<filename>vitejs_joomla.xml</filename>
 	</files>
